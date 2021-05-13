@@ -1,0 +1,11 @@
+{
+  "name": "scope-closures-hoisting",
+  "version": "1.0.0",
+  "description": "Theory and exercises ",
+  "main": "hoisting.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gonzalo vidal",
+  "license": "ISC"
+}
