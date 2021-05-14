@@ -69,3 +69,6 @@ const foo1 = function foo() {
 //We'll get the next error:
 //ReferenceError: Cannot access 'foo1' before initialization
 
+
+
+//MDN, Hoisting, https://developer.mozilla.org/en-US/docs/Glossary/Hoisting
