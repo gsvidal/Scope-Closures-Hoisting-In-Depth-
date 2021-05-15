@@ -98,19 +98,19 @@ let adder = createAdder();
 
 
 //Finally we'll see a closure:
-1: function createCounter() {
-  2:   let counter = 0;
-  3:   const myFunction = function() {
-  4:     counter = counter + 1;
-  5:     return counter;
-  6:   }
-  7:   return myFunction;
-  8: }
-  9: const increment = createCounter();
- 10: const c1 = increment();
- 11: const c2 = increment();
- 12: const c3 = increment();
- 13: console.log('example increment', c1, c2, c3);
+function createCounter() {
+  let counter = 0;
+  const myFunction = function() {
+    counter = counter + 1;
+    return counter;
+  }
+  return myFunction;
+}
+const increment = createCounter();
+ const c1 = increment();
+ const c2 = increment();
+ const c3 = increment();
+ console.log('example increment', c1, c2, c3);
 
 //Line 101: The compiler finds a formal variable declaration with a function definition attach to it, then asks the global scope manager if the creatCounter variable exists, but the gsm says doesn't find any, so the compiler produce code that at execution time ask to create a new variable called students in that scope bucket.
 
@@ -134,12 +134,38 @@ let adder = createAdder();
 
 //The counter value is returned (1) and it's assigned to c1
 
-//Line 111: We repeat steps in line 133
+//Line 111: We repeat steps in line 133, c2 gets assigned 2
+
+//Line 112: We repeat steps in line 133, c2 gets assigned 3.
+
+//Line 113: The content of variables c1, c2 and c3 is logged in console.
+
+//So now we understand how closures works, the key to remember is that when a function gets declared, it contains a function definition and a closure. The closure is a collection of all the variables in the function's scope.
+
+// This works even in the global scope, yes it is created a closure as well but since these functions were created in the global scope, they have access to all the variables in the global scope, and the closure concept is not that relevant
 
 
-
-
-
+//Another example with 2 functions returned (two closures), we'll see the same effect
+let glob = "g";
+function f1() {
+    let loc = "l";
+    glob = glob + loc;
+    function f2() {
+       let loc2 = "l2";
+       function f3() {
+          loc2 = loc2 + loc + glob;
+          return loc2;
+       }
+       return f3;
+    }
+    return f2;
+}
+const g1 = f1(); 
+const g2 = g1();
+const c1 = g2(); 
+const c2 = g2(); 
+console.log(c1); //l2lgl
+console.log(c2); //l2lgllgl
 
 
 
