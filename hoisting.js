@@ -1,5 +1,6 @@
 //Hoisting
-//FUNCTIONS AND VAR DECLARATION (VAR,LET AND CONST), BUT LET AND CONST DO NOT GET AUTO-INITIALIZED WHEN HOIST, BUT THEY HOIST
+//PRIMARILY FUNCTIONS AND VAR DECLARATION, BUT LET AND CONST DO NOT GET INITIALIZED (dont have default value) WHEN HOIST, BUT THEY HOIST (auto-register at the top of the scope)
+//Only hoisted variables declared using var get its default initialization ( undefined ), let and const are uninitialized.
 //JavaScript only hoists declarations, not initializations. 
 
 //Examples:
@@ -16,10 +17,9 @@ console.log(num);
 //undefined
 //5
 
-
-console.log(a);
+// If we forget the declaration (and only initialize the value) the variable isn't hoisted
+console.log(a); //ReferenceError: a is not defined 
 a = 7;
-//ReferenceError: num is not defined
 //That happened because JS hoist declaration, not initializations
 
 
@@ -69,6 +69,8 @@ const foo1 = function foo() {
 //We'll get the next error:
 //ReferenceError: Cannot access 'foo1' before initialization
 
-
+//TDZ: Temporal Dead Zone 
+// The TDZ is the time window where a variable exists but is still uninitialized
+// A var also has technically has a TDZ, but it’s zero in length and thus unobservable to our programs! Only let and const have an observable TDZ.
 
 //MDN, Hoisting, https://developer.mozilla.org/en-US/docs/Glossary/Hoisting

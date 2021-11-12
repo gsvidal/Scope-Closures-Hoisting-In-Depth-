@@ -15,8 +15,7 @@ myCount(); //1
 myCount(); //2
 myCount(); //3
 
-//But for someone new in javascript this is something big to assimilate, so let's break this up a little bit in a little series of exercises well explained:
-
+//But for someone new at javascript this is something big to assimilate, so let's break this up a little bit in a series of exercises deeply explained:
 
 // How does the JS engine really work?
 
@@ -39,6 +38,8 @@ console.log(b);
 //Here we can see the lexical scope definition in practice: 
 // Lexical scope is when a function can access a variable declared in its outer scope(next outer scope and so on)
 //Or when a variable defined outside a function can be accessible inside that function
+
+//Lexical scope / Ambito Léxico / Scope Chain
 let val1 = 2;
 function multiplyThis(n) {
   let ret = n * val1;
@@ -46,8 +47,7 @@ function multiplyThis(n) {
 }
 let multiplied = multiplyThis(6);
 console.log('example of scope:', multiplied);
-//12
-
+//example of scope: 12
 
 
 //Exercise 3
@@ -61,9 +61,9 @@ function createAdder() {
   return addNumbers;
 }
 let adder = createAdder();
- let sum = adder(val, 8);
- console.log('example of function returning a function: ', sum);
-//15
+let sum = adder(val, 8);
+console.log('example of function returning a function:', sum);
+//example of function returning a function: 15
 
 
 // Line 55: We declare a variable val in the global execution context and assign the value 7 to that variable
@@ -110,7 +110,9 @@ const increment = createCounter();
  const c1 = increment();
  const c2 = increment();
  const c3 = increment();
- console.log('example increment', c1, c2, c3);
+ console.log('example increment:', c1, c2, c3);
+ //example increment: 1 2 3
+
 
 //Line 101: The compiler finds a formal variable declaration with a function definition attach to it, then asks the global scope manager if the creatCounter variable exists, but the gsm says doesn't find any, so the compiler produce code that at execution time ask to create a new variable called students in that scope bucket.
 
@@ -166,7 +168,6 @@ const c1 = g2();
 const c2 = g2(); 
 console.log(c1); //l2lgl
 console.log(c2); //l2lgllgl
-
 
 
 
