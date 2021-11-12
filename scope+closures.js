@@ -29,15 +29,15 @@ let b = addTwo(a);
 console.log(b);
 //5
 
-//The compiler asks the global scope manager(gsm) if already exists a variable named "a", the gsm doesn't find it, so it creates it. then assigns to it the aritmethic expression, a literal value of 3, after that the gsm has a new request for creating a variable named addTwo, as it doesn't exists yet, it's created and is assigned to it a function definition. Still in the global scope a b variable is also created and assign for now an undefined, in that line, occurs a call expression addTwo() the gsm check if it exits in that scope and there it is, so executes it sending an a argument, so a is also checked and its value is 3 in the global scope, so the addTwo function have a parameter x, so it's created in the local execution context, and it's assigned the value of 3, so x = 3; then a ret variable is created in the function execution context and it's assign to it a binary expression (x + 2), the x = 3 and 2; 5 is assigned to ret, the next line is a return statement and finish the function, the 5 is returned when it's called and immediately the function instance as well as its local execution context and its variables (x, ret) are destroyed by the garbage colector.
-// Then again in the global scope the b variable is assigned with the 5 returned. and finally it's put to the console the value of b (5).
+//The compiler asks the global scope manager(gsm) if already exists a variable named "a", the gsm doesn't find it, so it creates it. then assigns to it the aritmethic expression, a literal value of 3, after that the gsm has a new request for creating a variable named addTwo, as it doesn't exists yet, it's created and is assigned to it a function definition. Still in the global scope, b variable is also created and assign for now undefined, in that line, occurs a call expression addTwo() the gsm check if it exits in that scope and there it is, so executes it sending an a argument, so a is also checked and its value is 3 in the global scope, so the addTwo function have a parameter x, so it's created in the local execution context, and it's assigned the value of 3, so x = 3; then a ret variable is created in the function execution context and it's assign to it a binary expression (x + 2), the x = 3 plus 2 so 5 is assigned to ret, the next line is a return statement and finish the function, 5 is returned when it's called and immediately the function instance, its local execution context and its variables (x, ret) are destroyed by the garbage colector.
+// Then again in the global scope the b variable is assigned with the returned 5. Then finally it's output in the console the value of b (5).
 
 
 
 //Exercise 2
 //Here we can see the lexical scope definition in practice: 
 // Lexical scope is when a function can access a variable declared in its outer scope(next outer scope and so on)
-//Or when a variable defined outside a function can be accessible inside that function
+// Or when a variable defined outside a function can be accessed inside that function
 
 //Lexical scope / Ambito Léxico / Scope Chain
 let val1 = 2;
@@ -124,7 +124,7 @@ const increment = createCounter();
 
 //Line 102: a counter variable is created in the createCounter scope and we assign the 0 to it.
 
-//Line 103: a MyFunction variable is declared and has a function definition assign to it, WE ALSO CREATE A CLOSURE AND INCLUDE IT AS PART OF THE FUNCTION DEFINITION. THE CLOSURE CAONTAINES THE VARIABLES THAT ARE IN SCOPE, IN THEIS CASE THE VARIABLE counter.
+//Line 103: a MyFunction variable is declared and has a function definition assign to it, WE ALSO CREATE A CLOSURE AND INCLUDE IT AS PART OF THE FUNCTION DEFINITION. THE CLOSURE CAONTAINES THE VARIABLES THAT ARE IN SCOPE, IN THEre IS THE VARIABLE counter.
 
 //Everything from line 104 to 105 is not proccesed yet.
 
